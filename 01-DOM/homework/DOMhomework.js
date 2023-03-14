@@ -20,7 +20,8 @@ let toDoItems = [];
 
 function ToDo (description) {
   // Tu código acá:
-  
+    this.description = description;
+    this.complete = false;
 }
 
 
@@ -29,7 +30,9 @@ function ToDo (description) {
 // Debe setear el atributo 'complete' del ToDo en true
 
 // Tu código acá:
-
+  ToDo.prototype.completeToDo = function() {
+    this.complete = true;
+  }
 
 // Agregar dos parámetros a la función 'buildToDo':
 //    1) Un objeto de la clase ToDo
@@ -51,6 +54,7 @@ function ToDo (description) {
 
 function buildToDo(todo, index) {
   // Tu código acá:
+  
 }
 
 // La función 'buildToDos' debe crear un array de objetos toDo y devolverlo
