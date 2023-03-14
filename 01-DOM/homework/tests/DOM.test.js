@@ -82,7 +82,7 @@ describe('Functión addToDo', () => {
   });
 
   it('Agrega un ToDo al array \'toDoItems\'', () => {
-    document.querySelector('#toDoInput').value = 'Creae nuevo ToDo';
+    document.querySelector('#toDoInput').value = 'Crear nuevo ToDo';
     addToDo();
     expect(toDoItems.length).toBeGreaterThan(0);
   });
