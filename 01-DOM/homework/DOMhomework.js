@@ -58,11 +58,12 @@ function buildToDo(todo, index) {
   toDoShell.setAttribute('class', 'toDoShell');
   var toDoText = document.createElement('span');
   toDoText.innerHTML = todo.description;
-  toDoText = document.getElementById(index);
-  if(todo.complete === true) {
-    toDoText.class(completeText)
-    toDoShell.toDoText;
+  toDoText.setAttribute('id', index);
+  if(todo.complete) {
+    toDoText.setAttribute('class', 'completeText')
   }
+  toDoShell.appendChild(toDoText)
+  toDoText.addEventListener('click', completeToDo)
   return toDoShell;
 }
 
@@ -110,10 +111,10 @@ function displayToDos() {
 
 function addToDo() {
   // Tu código acá:
-  let toDoInput = getElementById('toDoInput').value;
+  let toDoInput = document.querySelector('#toDoInput').value;
   let newToDo = new ToDo(toDoInput);
   toDoItems.push(newToDo);
-  document.getElementById('toDoInput').value = '';
+  toDoInput = '';
   displayToDos();
 }
 
@@ -123,6 +124,7 @@ function addToDo() {
 //   2) Agregarle un 'click' event listener, pasándole la función 'addToDo' como callback
 
 // Tu código acá:
+document.getElementById('addButton').addEventListener('click', addToDo);
 
 
 
@@ -140,9 +142,10 @@ function addToDo() {
 
 function completeToDo(event) {
   // DESCOMENTAR LA SIGUIENTE LINEA
-  //const index = event.target.id;
+  const index = event.target.id;
   // Tu código acá:
-  
+  toDoItems[index].completeToDo();
+  displayToDos();
 }
 
 // Una vez que llegaste a este punto verificá que todos los tests pasen
