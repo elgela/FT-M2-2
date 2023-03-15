@@ -29,7 +29,7 @@ var selectorTypeMatcher = function (selector) {
   //para luego identificar de que tipo es
   if (selector[0] === '#') return 'id';
   if (selector[0] === '.') return 'class';
-  if (selector.split('.').length === 2) return 'tag.class';
+  if (selector.split('.').length >= 2) return 'tag.class'; //selector.includes('.')
   return 'tag';
 };
 
@@ -42,13 +42,29 @@ var matchFunctionMaker = function (selector) {
   var selectorType = selectorTypeMatcher(selector);
   var matchFunction;
   if (selectorType === "id") {
-    matchFunction = (e) => 
+    // matchFunction = (elem) => elem.id === selector.slice(1);
+    matchFunction = (elem) => {
+      if (`#${elem.id}` === selector) return true;
+      return false;
+    }
   } else if (selectorType === "class") {
-
+    matchFunction = (elem) => {
+      for (const className of elem.classList) {
+        if (`.${className}` === selector) return true;
+      }
+      return false;
+    }
   } else if (selectorType === "tag.class") {
+    matchFunction = (elem) => {
+      const [tag, className] = selector.split('.');
 
+      return matchFunctionMaker(tag)(elem) && matchFunctionMaker(`.${className}`)(elem);
+    }
   } else if (selectorType === "tag") {
-
+    matchFunction = (elem) => {
+      if (elem.tagName.toLowwerCase() === selector) return true;
+      return false;
+    }
   }
   return matchFunction;
 };
