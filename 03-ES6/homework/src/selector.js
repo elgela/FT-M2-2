@@ -31,6 +31,7 @@ var selectorTypeMatcher = function (selector) {
   if (selector[0] === '.') return 'class';
   if (selector.split('.').length >= 2) return 'tag.class'; //selector.includes('.')
   return 'tag';
+  
 };
 
 // NOTA SOBRE LA FUNCIÓN MATCH
@@ -62,7 +63,7 @@ var matchFunctionMaker = function (selector) {
     }
   } else if (selectorType === "tag") {
     matchFunction = (elem) => {
-      if (elem.tagName.toLowwerCase() === selector) return true;
+      if (elem.tagName.toLowerCase() === selector) return true;
       return false;
     }
   }
