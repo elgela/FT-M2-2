@@ -1,5 +1,3 @@
-// const { json } = require("body-parser");
-
 function getFriends() {
     //Limpia la lista anterior
     let lista = document.getElementById('lista');
