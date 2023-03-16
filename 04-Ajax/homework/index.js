@@ -1,7 +1,7 @@
 const URL = 'http://localhost:5000';
 const boton = document.getElementById('boton');
 const lista = document.getElementById('lista');
-const loader = document.querySelector('loader');
+// const loader = document.querySelector('loader');
 
 const input = document.getElementById('input');
 const search = document.getElementById('search');
@@ -12,15 +12,22 @@ const borrarAmigo = document.getElementById('delete');
 const succes = document.getElementById('succes');
 
 const getFriends = () => {
+    let lista = document.getElementById('lista');
+    lista.innerHTML = '';
     $.get(`${URL}/amigos`, (respuesta) => {
         respuesta.forEach(amigo => {
             let showFriends = document.createElement('li');
             showFriends.innerHTML = `${amigo.id} - ${amigo.name}`;
             lista.appendChild(showFriends);
         });
-        loader.setAttribute('src', '')
+        // loader.setAttribute('src', '')
     })
-    lista.innerHTML = '';
+    // lista.innerHTML = '';
+
+    let img = document.getElementsByTagName('img'); //<img src='url'>
+        if(img.length > 0) {
+            img[0].remove()
+     }
 }
 
 const getFriend = () => {
@@ -36,10 +43,10 @@ const deleteFriend = () => {
         url: `${URL}/amigos/${amigoId}`,
         type: 'DELETE',
         succes: () => {
-            // succes.innerHTML = 'Juira amigo!!'
-            alert(`el amigo ${id} fué borrado`)
-            // lista.innerHTML = ''
+            succes.innerHTML = 'Juira amigo!!'
+            // alert(`el amigo ${id} fué borrado`)
             getFriends()
+            lista.innerHTML = ''
         }
     })
 }
