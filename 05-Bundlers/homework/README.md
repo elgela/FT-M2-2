@@ -190,7 +190,7 @@ bar(); // Ahora esto va a ser 42!
 ```
 
 Cuando invocamos `bar` ahora, la función `bar` que invocamos va a tener closure sobre la variable `foo` dentro del IIFE - no va a colisionar con la variable `foo` declarada en `fileC.js`!
-
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 Mientras que todavía hay chances que `window.bar` pueda ser sobrescrito por otro módulo, este patrón hizo las cosas mucho más fácil por un tiempo, podemos escribir ahora archivos JavaScript separados, envueltos en IIFEs, y podemos razonar sobre ellos en términos de sus "exports" (los valores que ellos anexan al objeto global `window`),  y sus "imports"/"dependencias" (los valores que necesitan que existan en el objeto global `window` antes de que ese archivo corrió). Otra variación de este concepto, [el patrón de revelación de módulos](https://addyosmani.com/resources/essentialjsdesignpatterns/book/#revealingmodulepatternjavascript), en el cual retornamos en la función eso que queremos exponer, permitió a los desarrolladores ser mucho mas explícitos sobre los "exports" de sus "módulos".
 
 Sin embargo, con el amanecer de la edad de AJAX y JQuery, las aplicaciones web se fueron haciendo más grandes y más sofisticadas, y el "patrón IIFE" esta lejos de ser a prueba de tontos. Si queremos escribir aplicaciones de browser sofisticadas como las que existen en la computadora, vamos a necesitar herramientas mejores.
