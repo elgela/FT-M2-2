@@ -11,6 +11,8 @@ const inputDelete = document.getElementById('inputDelete');
 const borrarAmigo = document.getElementById('delete');
 const succes = document.getElementById('succes');
 
+////////////// con jQuery /////////////////////
+
 const getFriends = () => {
     let lista = document.getElementById('lista');
     lista.innerHTML = '';
@@ -57,6 +59,7 @@ search.addEventListener('click', getFriend);
 borrarAmigo.addEventListener('click', deleteFriend);
 
 
+////////////////////////// con function //////////////////////
 
 // function getFriends() {
 //     //Limpia la lista anterior
