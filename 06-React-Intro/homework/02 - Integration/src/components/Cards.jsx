@@ -1,6 +1,6 @@
 import Card from './Card';
 
-export default function Cards(props) {
+export default function Cards() {
    return (
       <div>
          
