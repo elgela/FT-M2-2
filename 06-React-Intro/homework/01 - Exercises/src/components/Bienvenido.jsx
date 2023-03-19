@@ -1,4 +1,5 @@
 import React from "react";
+import Botones from "./Botones";
 
 const studentName = "Marcelo";
 const techSkills = ["Html", "Css", "JavaScript", "React", "Redux"];
@@ -12,6 +13,7 @@ export default function Bienvenido() {
       <ul>
         {techSkills.map(techSkills => <li>{techSkills}</li>)}
       </ul>
+      <Botones alerts={alerts}/>
     </div>
   )
 }
