@@ -11,7 +11,7 @@ export default function Bienvenido() {
       <h1>Página web propiedad de:</h1>
       <h3>{studentName}</h3>
       <ul>
-        {techSkills.map(techSkills => <li>{techSkills}</li>)}
+        {techSkills && techSkills.map(techSkills => <li>{techSkills}</li>)}
       </ul>
       <Botones alerts={alerts}/>
     </div>
