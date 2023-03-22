@@ -32,7 +32,7 @@ export default function Zoo() {
       })
    )
    .catch((error) => console.log(error));
-  })
+  }, [])
 
   function handleSpecies(e) {
 
