@@ -3,7 +3,7 @@ import React from "react";
 import Animals from "../Animals/Animals";
 // eslint-disable-next-line no-unused-vars
 import Species from "../Species/Species";
-import styledZoo from "./Zoo.module.css";
+// import styledZoo from "./Zoo.module.css";
 
 export default function Zoo() {
   const [zoo, setZoo] = React.useState({
