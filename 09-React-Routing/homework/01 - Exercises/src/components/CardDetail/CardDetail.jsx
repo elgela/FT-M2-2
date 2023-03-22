@@ -5,8 +5,8 @@ import { useParams, useNavigate } from "react-router-dom";
 export default function CardDetail() {
 
   const navigate = useNavigate();
-  const { id } = useParams();
   const [cruiseDetail, setCruiseDetail] = React.useState({});
+  const { id } = useParams();
   React.useEffect(() => {
     //eslint-disable-next-line
     fetch(`http://localhost:3001/cruises/${id}`)
