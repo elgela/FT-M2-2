@@ -3,14 +3,14 @@ import React from "react";
 import Animals from "../Animals/Animals";
 // eslint-disable-next-line no-unused-vars
 import Species from "../Species/Species";
-import styledZoo from "./Zoo.module.css";
+// import styledZoo from "./Zoo.module.css";
 
 export default function Zoo() {
   const [zoo, setZoo] = React.useState({
     zooName: '',
     animals: [],
     species: [],
-    allAnimalls: []
+    allAnimals: []
   })
 
   function handleInputChange(e) {
@@ -32,20 +32,29 @@ export default function Zoo() {
       })
    )
    .catch((error) => console.log(error));
-  })
+  }, [])
 
-  function handleSpecies(e) {
-
-  }
+  function handleSpecies(evento) {
+    setZoo({
+      ...zoo,
+      animals: zoo.allAnimals.filter((animal) => animal.specie === evento.target.value)
+      
+    })
+    // console.log(evento.target.value)
+    }
+    
 
   function handleAllSpecies() {
-
+    setZoo({
+      ...zoo,
+      animals: zoo.allAnimals
+    })
   }
 
   return (
     <div>
       <label>Zoo Name:</label>
-      <input value={zoo.zooName} onChange={handleInputChange}  />
+      <input value={zoo.zooName} onChange={handleInputChange} />
       <h1>{zoo.zooName}</h1>
       <Species species={zoo.species} handleSpecies={handleSpecies} handleAllSpecies={handleAllSpecies} />
       <Animals animals={zoo.animals}/>
