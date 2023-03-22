@@ -1,9 +1,11 @@
 import React from "react";
 import styles from "./CardDetail.module.css";
-
+import { useParams, useNavigate } from "react-router-dom";
 
 export default function CardDetail() {
 
+  const navigate = useNavigate();
+  const { id } = useParams();
   const [cruiseDetail, setCruiseDetail] = React.useState({});
   React.useEffect(() => {
     //eslint-disable-next-line
@@ -16,6 +18,10 @@ export default function CardDetail() {
     return () => setCruiseDetail({});
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  backToHome = () => {
+    
+  }
 
   return (
     <div className={styles.container}>
