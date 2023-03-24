@@ -24,9 +24,9 @@
   transition: all 0.2s ease-in-out;
 }
 
-.menu li:hover {
+/* .menu li:hover {
   color: #fddb3a;
-}
+} */
 
 .menu li img {
   display: block;
@@ -52,4 +52,12 @@
 .disable {
   color: #f6f4e6;
   text-decoration: none;
+}
+
+span {
+  color: #fae995;
+}
+
+.menu span:hover {
+  color: #f8d10b;
 }
